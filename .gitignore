@@ -1,0 +1,7 @@
+# Ignore everything by default
+*
+
+# But don't ignore the following:
+!.gitignore
+!.zshrc
+
