@@ -3,5 +3,6 @@
 
 # But don't ignore the following:
 !.gitignore
+!README.md
 !.zshrc
 
