@@ -153,6 +153,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias fd=fdfind
 
 # Alacritty completions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
