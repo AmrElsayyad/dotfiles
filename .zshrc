@@ -69,7 +69,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 FNM_PATH="/home/amr/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
     export PATH="/home/amr/.local/share/fnm:$PATH"
-    eval "`fnm env`"
+    eval "$(fnm env)"
 fi
 
 # autoenv
@@ -197,3 +197,15 @@ if ! bluetoothctl info $LOGITECH_SPEAKERS | grep -q "Connected: yes"; then
     bluetoothctl connect $LOGITECH_SPEAKERS
 fi
 
+# Update the system
+read "answer?Do you want to update the system? [y/N] "
+if [[ ${answer:l} =~ ^(yes|y)$ ]]; then
+    aguu
+    sudo sref
+    flatpak update
+    bun update --latest -g
+elif [[ ${answer:l} =~ ^(no|n)$ ]]; then
+    echo "Skipping system update"
+else
+    eval "${answer}"
+fi
