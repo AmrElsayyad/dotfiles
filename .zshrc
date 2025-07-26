@@ -201,7 +201,7 @@ fi
 read "answer?Do you want to update the system? [y/N] "
 if [[ ${answer:l} =~ ^(yes|y)$ ]]; then
     aguu
-    sudo sref
+    sudo snap refresh
     flatpak update
     bun update --latest -g
 elif [[ ${answer:l} =~ ^(no|n)$ ]]; then
