@@ -200,7 +200,7 @@ fi
 # Update the system
 read "answer?Do you want to update the system? [y/N] "
 if [[ ${answer:l} =~ ^(yes|y)$ ]]; then
-    aguu
+    aguu -y
     sudo snap refresh
     flatpak update
     bun update --latest -g
