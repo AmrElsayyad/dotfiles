@@ -202,7 +202,7 @@ read "answer?Do you want to update the system? [y/N] "
 if [[ ${answer:l} =~ ^(yes|y)$ ]]; then
     aguu -y
     sudo snap refresh
-    flatpak update
+    flatpak update -y
     bun update --latest -g
 elif [[ ${answer:l} =~ ^(no|n)$ ]]; then
     echo "Skipping system update"
