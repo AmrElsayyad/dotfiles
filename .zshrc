@@ -189,9 +189,16 @@ export PATH="$PATH:/home/amr/.turso"
 alias cursor="~/Applications/Cursor-0.50-x86_64.AppImage"
 
 # DPI VMs
-alias ssh-dpi-agent="ssh -i ~/Documents/dpi-keys/DPI-AGENT_key.pem DPIAdmin@172.160.248.42 -p 2025"
-alias ssh-dpi-dev="ssh -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem DPIAdmin@20.240.162.10 -p 2025"
-alias ssh-dpi-test="ssh -i ~/Documents/dpi-keys/DPI-DEV-MASTER-2_keySTG.pem DPIAdmin@172.160.251.43 -p 2024"
+alias ssh-dpi-agent="ssh -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -p 2025 DPIAdmin@172.160.248.42"
+alias ssh-dpi-dev="ssh -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -p 2025 DPIAdmin@20.240.162.10"
+alias ssh-dpi-test="ssh -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -p 2024 DPIAdmin@172.160.250.26"
+function keti-app() {
+  if [[ -z "$1" ]]; then
+    echo "Error: Please provide an app name"
+    return 1
+  fi
+  kubectl exec -tin microservices-ns $(kubectl get pods -n microservices-ns --no-headers -o custom-columns=":metadata.name" -l app="$1" | head -1) -- bash
+}
 
 # Fastfetch
 fastfetch
