@@ -23,13 +23,13 @@ tmux_conf_preserve_stock_bindings=false
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_prompt=false
+tmux_conf_new_session_prompt=true
 
 # new session retains current path, possible values are:
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_retain_current_path=false
+tmux_conf_new_session_retain_current_path=true
 
 
 # -- windows & pane creation ---------------------------------------------------
@@ -38,13 +38,13 @@ tmux_conf_new_session_retain_current_path=false
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-window bindings)
-tmux_conf_new_window_retain_current_path=false
+tmux_conf_new_window_retain_current_path=true
 
 # new window tries to reconnect ssh sessions, possible values are:
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-window bindings)
-tmux_conf_new_window_reconnect_ssh=false
+tmux_conf_new_window_reconnect_ssh=true
 
 # new pane retains current path, possible values are:
 #   - true (default)
@@ -56,7 +56,7 @@ tmux_conf_new_pane_retain_current_path=true
 #   - true
 #   - false (default)
 #   - disabled (do not modify split-window bindings)
-tmux_conf_new_pane_reconnect_ssh=false
+tmux_conf_new_pane_reconnect_ssh=true
 
 
 # -- display -------------------------------------------------------------------
@@ -403,7 +403,6 @@ tmux_conf_urlscan_options="--compact --dedupe"
 
 # if you don't want Oh my tmux! to alter a binding or a setting, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
-bind C-c new-session -c '#{pane_current_path}' #!important
 
 # move status line to top
 set -g status-position top
