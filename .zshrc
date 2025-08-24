@@ -250,10 +250,12 @@ fi
 # Update the system
 read "answer?Do you want to update the system? [y/N] "
 if [[ ${answer:l} =~ ^(yes|y)$ ]]; then
-    aguu -y
-    sudo snap refresh
-    flatpak update -y
-    bun update --latest -g
+    aguu -y && \
+    sudo snap refresh && \
+    flatpak update -y && \
+    bun update --latest -g && \
+    echo "Updating pip packages..." && \
+    pip list --outdated --format=columns | awk 'NR>2{print $1"=="$2}' | xargs -n1 pip install -U
 elif [[ ${answer:l} =~ ^(no|n)$ ]]; then
     echo "Skipping system update"
 else
