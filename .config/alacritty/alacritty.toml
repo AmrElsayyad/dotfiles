@@ -1,0 +1,15 @@
+general.import = [
+  # uncomment the flavour you want below:
+  # "~/.config/alacritty/catppuccin-latte.toml",
+  # "~/.config/alacritty/catppuccin-frappe.toml",
+  # "~/.config/alacritty/catppuccin-macchiato.toml",
+  # "~/.config/alacritty/catppuccin-mocha.toml",
+]
+
+[window]
+startup_mode = "Maximized"
+decorations = "none"
+
+[font]
+normal.family = "JetBrainsMono NF"
+size = 13.5

@@ -6,4 +6,6 @@
 !README.md
 !.zshrc
 !.tmux.conf.local
-
+!.config/
+!.config/alacritty/
+!.config/alacritty/alacritty.toml
