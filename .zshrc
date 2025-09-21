@@ -154,6 +154,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export NVIM_DIR="$HOME/.config/nvim"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias fd=fdfind
 
@@ -202,11 +204,12 @@ function scp-dpi-from() {
   # $3: local_path (destination)
   case "$1" in
     agent)
-      scp -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -P 2025 DPIAdmin@172.160.248.42:$2 $3 ;;
+      # take all the arguments as source and the last one as destination
+      scp -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -P 2025 DPIAdmin@172.160.248.42:"${@:2:$# -2}" ${@: -1} ;;
     dev)
-      scp -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -P 2025 DPIAdmin@20.240.162.10:$2 $3 ;;
+      scp -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -P 2025 DPIAdmin@20.240.162.10:"${@:2:$# -2}" ${@: -1} ;;
     test)
-      scp -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -P 2024 DPIAdmin@172.160.250.26:$2 $3 ;;
+      scp -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -P 2024 DPIAdmin@172.160.250.26:"${@:2:$# -2}" ${@: -1} ;;
     *)
       echo "Error: Unknown environment $1 (agent/dev/test)"
       return 1 ;;
@@ -219,11 +222,11 @@ function scp-dpi-to() {
   # $3: remote_path (destination)
   case "$1" in
     agent)
-      scp -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -P 2025 $2 DPIAdmin@172.160.248.42:$3 ;;
+      scp -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -P 2025 ${@:2:$# -2} DPIAdmin@172.160.248.42:${@: -1} ;;
     dev)
-      scp -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -P 2025 $2 DPIAdmin@20.240.162.10:$3 ;;
+      scp -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -P 2025 ${@:2:$# -2} DPIAdmin@20.240.162.10:${@: -1} ;;
     test)
-      scp -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -P 2024 $2 DPIAdmin@172.160.250.26:$3 ;;
+      scp -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -P 2024 ${@:2:$# -2} DPIAdmin@172.160.250.26:${@: -1} ;;
     *)
       echo "Error: Unknown environment $1 (agent/dev/test)"
       return 1 ;;
