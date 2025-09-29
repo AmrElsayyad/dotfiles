@@ -2,10 +2,11 @@
 *
 
 # But don't ignore the following:
-!.gitignore
-!README.md
-!.zshrc
-!.tmux.conf.local
 !.config/
 !.config/alacritty/
 !.config/alacritty/alacritty.toml
+!.gitignore
+!.tmux.conf.local
+!.zshenv
+!.zshrc
+!README.md
