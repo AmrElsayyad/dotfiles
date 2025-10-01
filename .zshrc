@@ -147,12 +147,13 @@ export PATH="$PATH:/home/amr/.turso"
 alias cursor="~/Applications/Cursor-0.50-x86_64.AppImage"
 
 # DPI VMs
-alias ssh-dpi-agent="ssh -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -p 2025 DPIAgentAdmin@172.160.248.42"
-alias ssh-dpi-dev-k8s-tun-setup="ssh -fNi ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -p 2025 -L 6443:dpi-dev-development-master1:6443 DPIAdmin@20.240.162.10"
-alias ssh-dpi-dev="ssh -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -p 2025 DPIAdmin@20.240.162.10"
-alias ssh-dpi-test-k8s-tun-setup="ssh -fNi ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -p 2024 -L 64433:localhost:6443 DPIAdmin@172.160.250.26"
-alias ssh-dpi-test="ssh -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -p 2024 DPIAdmin@172.160.250.26"
-alias ssh-dpi-test2="ssh -i ~/Documents/dpi-keys/DPI-DEV-MASTER-2_keySTG.pem -p 2024 DPIAdmin@172.160.251.43"
+export DPI_SSH_KEYS_DIR=$HOME/projects/GS/DPI-ScoreCard.extra/ssh-keys
+alias ssh-dpi-agent="ssh -i \"$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem\" -p 2025 DPIAgentAdmin@172.160.248.42"
+alias ssh-dpi-dev-k8s-tun-setup="ssh -fNi \"$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem\" -p 2025 -L 6443:dpi-dev-development-master1:6443 DPIAdmin@20.240.162.10"
+alias ssh-dpi-dev="ssh -i \"$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem\" -p 2025 DPIAdmin@20.240.162.10"
+alias ssh-dpi-test-k8s-tun-setup="ssh -fNi \"$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem\" -p 2024 -L 64433:localhost:6443 DPIAdmin@172.160.250.26"
+alias ssh-dpi-test="ssh -i \"$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem\" -p 2024 DPIAdmin@172.160.250.26"
+alias ssh-dpi-test2="ssh -i \"$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-2_keySTG.pem\" -p 2024 DPIAdmin@172.160.251.43"
 
 function scp-dpi-from() {
   # $1: env (agent/dev/test)
@@ -161,11 +162,11 @@ function scp-dpi-from() {
   case "$1" in
     agent)
       # take all the arguments as source and the last one as destination
-      scp -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -P 2025 DPIAdmin@172.160.248.42:"${@:2:$# -2}" ${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 DPIAdmin@172.160.248.42:"${@:2:$# -2}" ${@: -1} ;;
     dev)
-      scp -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -P 2025 DPIAdmin@20.240.162.10:"${@:2:$# -2}" ${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 DPIAdmin@20.240.162.10:"${@:2:$# -2}" ${@: -1} ;;
     test)
-      scp -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -P 2024 DPIAdmin@172.160.250.26:"${@:2:$# -2}" ${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 DPIAdmin@172.160.250.26:"${@:2:$# -2}" ${@: -1} ;;
     *)
       echo "Error: Unknown environment $1 (agent/dev/test)"
       return 1 ;;
@@ -178,11 +179,11 @@ function scp-dpi-to() {
   # $3: remote_path (destination)
   case "$1" in
     agent)
-      scp -i ~/Documents/dpi-keys/DPI-AGENT_key.pem -P 2025 ${@:2:$# -2} DPIAdmin@172.160.248.42:${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 ${@:2:$# -2} DPIAdmin@172.160.248.42:${@: -1} ;;
     dev)
-      scp -i ~/Documents/dpi-keys/dpi-dev-development-master1_key_0110.pem -P 2025 ${@:2:$# -2} DPIAdmin@20.240.162.10:${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 ${@:2:$# -2} DPIAdmin@20.240.162.10:${@: -1} ;;
     test)
-      scp -i ~/Documents/dpi-keys/DPI-DEV-MASTER-1_keySTG.pem -P 2024 ${@:2:$# -2} DPIAdmin@172.160.250.26:${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 ${@:2:$# -2} DPIAdmin@172.160.250.26:${@: -1} ;;
     *)
       echo "Error: Unknown environment $1 (agent/dev/test)"
       return 1 ;;

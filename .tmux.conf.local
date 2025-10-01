@@ -408,7 +408,7 @@ tmux_conf_urlscan_options="--compact --dedupe"
 set -g status-position top
 
 # repeat-time option controls the time interval in milliseconds for repeating key bindings
-set -s repeat-time 250
+set -s repeat-time 0
 
 
 # -- tpm -----------------------------------------------------------------------
