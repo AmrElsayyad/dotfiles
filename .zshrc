@@ -72,6 +72,9 @@ if [ -d "$FNM_PATH" ]; then
     eval "$(fnm env)"
 fi
 
+# tmux variables
+ZSH_TMUX_AUTONAME_SESSION=true
+
 # OMZ plugins are defined in ~/.zshenv
 source "$HOME/.zshenv"
 
