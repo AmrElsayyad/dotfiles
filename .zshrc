@@ -149,6 +149,9 @@ export PATH="$PATH:/home/amr/.turso"
 # cursor
 alias cursor="~/Applications/Cursor-0.50-x86_64.AppImage"
 
+# Avante Zen Mode
+alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
+
 # DPI VMs
 export DPI_SSH_KEYS_DIR=$HOME/projects/GS/DPI-ScoreCard.extra/ssh-keys
 alias ssh-dpi-agent="ssh -i \"$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem\" -p 2025 DPIAgentAdmin@dpi-agent"

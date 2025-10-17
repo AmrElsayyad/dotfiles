@@ -4,7 +4,7 @@
 # But don't ignore the following:
 !.config/
 !.config/alacritty/
-!.config/alacritty/alacritty.toml
+!.config/alacritty/*
 !.gitignore
 !.tmux.conf.local
 !.zshenv
