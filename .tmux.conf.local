@@ -404,11 +404,8 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # if you don't want Oh my tmux! to alter a binding or a setting, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
 
-# move status line to top
 set -g status-position top
-
-# repeat-time option controls the time interval in milliseconds for repeating key bindings
-set -s repeat-time 100
+set -sg repeat-time 100                   # decrease repeat timeout
 
 
 # -- tpm -----------------------------------------------------------------------
