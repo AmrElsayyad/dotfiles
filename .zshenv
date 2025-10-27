@@ -23,6 +23,7 @@ plugins=(
     git
     golang
     history
+    k9s
     kubectl
     mvn
     npm

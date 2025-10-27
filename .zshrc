@@ -146,6 +146,10 @@ export PATH=$BUN_INSTALL/bin:$PATH
 # Turso
 export PATH="$PATH:/home/amr/.turso"
 
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 # cursor
 alias cursor="~/Applications/Cursor-0.50-x86_64.AppImage"
 
@@ -213,7 +217,7 @@ fi
 # Update the system
 read "answer?Do you want to update the system? [y/N] "
 if [[ ${answer:l} =~ ^(yes|y)$ ]]; then
-    aguu -y && \
+    agu && aglu && agug -y && \
     sudo snap refresh && \
     flatpak update -y && \
     bun update --latest -g && \
