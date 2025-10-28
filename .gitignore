@@ -6,6 +6,8 @@
 !.config/alacritty/
 !.config/alacritty/*
 !.gitignore
+!scripts/
+!scripts/*
 !.tmux.conf.local
 !.zshenv
 !.zshrc

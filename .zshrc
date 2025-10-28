@@ -169,11 +169,11 @@ function scp-dpi-from() {
   case "$1" in
     agent)
       # take all the arguments as source and the last one as destination
-      scp -i "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 DPIAdmin@dpi-agent:"${@:2:$# -2}" ${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 DPIAdmin@dpi-agent:${@:2:$# -2} ${@: -1} ;;
     dev)
-      scp -i "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 DPIAdmin@dpi-dev-development-master1:"${@:2:$# -2}" ${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 DPIAdmin@dpi-dev-development-master1:${@:2:$# -2} ${@: -1} ;;
     test)
-      scp -i "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 DPIAdmin@dpi-dev-master-1:"${@:2:$# -2}" ${@: -1} ;;
+      scp -i "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 DPIAdmin@dpi-dev-master-1:${@:2:$# -2} ${@: -1} ;;
     *)
       echo "Error: Unknown environment $1 (agent/dev/test)"
       return 1 ;;
@@ -216,18 +216,14 @@ fi
 
 # Update the system
 read "answer?Do you want to update the system? [y/N] "
-if [[ ${answer:l} =~ ^(yes|y)$ ]]; then
-    agu && aglu && agug -y && \
-    sudo snap refresh && \
-    flatpak update -y && \
-    bun update --latest -g && \
-    echo "Updating npm packages..." && \
-    npm update -g && \
-    pipx upgrade-all && \
-    echo "Updating pip packages..." && \
-    pip list --outdated --format=columns | awk 'NR>2{print $1"=="$2}' | xargs -n1 pip install -U
-elif [[ ${answer:l} =~ ^(no|n)$ ]]; then
+answer=${answer:l}
+
+if [[ $answer =~ ^(yes|y)$ ]]; then
+    echo "Starting system update..."
+    ~/scripts/update-system.sh
+elif [[ $answer =~ ^(no|n)$ ]]; then
     echo "Skipping system update"
 else
-    eval "${answer}"
+    eval "$answer"
 fi
+

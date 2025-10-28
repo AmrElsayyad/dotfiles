@@ -1,0 +1,1 @@
+Auto-WallpaperSwitcher/auto_wallpaperSwitcher.sh
