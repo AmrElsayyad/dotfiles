@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -115,6 +116,8 @@ fi
 
 export NVIM_DIR="$HOME/.config/nvim"
 
+alias snap="sudo snap"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias fd=fdfind
 
@@ -163,46 +166,69 @@ alias ssh-dpi-dev="ssh -i \"$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_01
 alias ssh-dpi-test="ssh -i \"$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem\" -p 2024 DPIAdmin@dpi-dev-master-1"
 
 function scp-dpi-from() {
-  # $1: env (agent/dev/test)
-  # $2: remote_path (source)
-  # $3: local_path (destination)
-  case "$1" in
-    agent)
-      # take all the arguments as source and the last one as destination
-      scp -i "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 DPIAdmin@dpi-agent:${@:2:$# -2} ${@: -1} ;;
-    dev)
-      scp -i "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 DPIAdmin@dpi-dev-development-master1:${@:2:$# -2} ${@: -1} ;;
-    test)
-      scp -i "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 DPIAdmin@dpi-dev-master-1:${@:2:$# -2} ${@: -1} ;;
-    *)
-      echo "Error: Unknown environment $1 (agent/dev/test)"
-      return 1 ;;
-  esac
+    # $1: env (agent/dev/test)
+    # $2: remote_path (source)
+    # $3: local_path (destination)
+    case "$1" in
+        agent)
+            # take all the arguments as source and the last one as destination
+            scp -ri "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 DPIAdmin@dpi-agent:${@:2:$# -2} ${@: -1}
+            ;;
+        dev)
+            scp -ri "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 DPIAdmin@dpi-dev-development-master1:${@:2:$# -2} ${@: -1}
+            ;;
+        test)
+            scp -ri "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 DPIAdmin@dpi-dev-master-1:${@:2:$# -2} ${@: -1}
+            ;;
+        *)
+            echo "Error: Unknown environment $1 (agent/dev/test)"
+            return 1
+            ;;
+    esac
 }
 
 function scp-dpi-to() {
-  # $1: env (agent/dev/test)
-  # $2: local_path (source)
-  # $3: remote_path (destination)
-  case "$1" in
-    agent)
-      scp -i "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 ${@:2:$# -2} DPIAdmin@dpi-agent:${@: -1} ;;
-    dev)
-      scp -i "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 ${@:2:$# -2} DPIAdmin@dpi-dev-development-master1:${@: -1} ;;
-    test)
-      scp -i "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 ${@:2:$# -2} DPIAdmin@dpi-dev-master-1:${@: -1} ;;
-    *)
-      echo "Error: Unknown environment $1 (agent/dev/test)"
-      return 1 ;;
-  esac
+    # $1: env (agent/dev/test)
+    # $2: local_path (source)
+    # $3: remote_path (destination)
+    case "$1" in
+        agent)
+            scp -ri "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 ${@:2:$# -2} DPIAdmin@dpi-agent:${@: -1}
+            ;;
+        dev)
+            scp -ri "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 ${@:2:$# -2} DPIAdmin@dpi-dev-development-master1:${@: -1}
+            ;;
+        test)
+            scp -ri "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 ${@:2:$# -2} DPIAdmin@dpi-dev-master-1:${@: -1}
+            ;;
+        *)
+            echo "Error: Unknown environment $1 (agent/dev/test)"
+            return 1
+            ;;
+    esac
 }
 
-function keti-app() {
-  if [[ -z "$1" ]]; then
-    echo "Error: Please provide an app name"
-    return 1
-  fi
-  kubectl exec -tin microservices-ns $(kubectl get pods -n microservices-ns --no-headers -o custom-columns=":metadata.name" -l app="$1" | head -1) -- bash
+function keti-dpi-app() {
+    if [[ -z "$1" ]]; then
+        echo "Error: Please provide an environment (dev/test)"
+        return 1
+    fi
+    if [[ -z "$2" ]]; then
+        echo "Error: Please provide an app name"
+        return 1
+    fi
+    case "$1" in
+        dev)
+            kubectl exec -tin microservices-ns "$(kubectl get pods -n microservices-ns --no-headers -o custom-columns=':metadata.name' -l \"app=$2\" --context dpi-dev | head -1)" -- bash
+            ;;
+        test)
+            kubectl exec -tin microservices-ns "$(kubectl get pods -n microservices-ns --no-headers -o custom-columns=':metadata.name' -l app=\"$2\" --context dpi-test | head -1)" -- bash
+            ;;
+        *)
+            echo "Error: Unknown environment $1 (dev/test)"
+            return 1
+            ;;
+    esac
 }
 
 # Fastfetch
@@ -210,7 +236,7 @@ fastfetch
 
 # Connect Bluetooth headphones automatically
 LOGITECH_SPEAKERS="$(bluetoothctl paired-devices | grep Logi | cut -d ' ' -f 2)"
-if ! bluetoothctl info $LOGITECH_SPEAKERS | grep -q "Connected: yes"; then
+if ! bluetoothctl info "$LOGITECH_SPEAKERS" | grep -q "Connected: yes"; then
     bluetoothctl connect $LOGITECH_SPEAKERS
 fi
 
