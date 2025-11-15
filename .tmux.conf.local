@@ -59,6 +59,48 @@ tmux_conf_new_pane_retain_current_path=true
 tmux_conf_new_pane_reconnect_ssh=true
 
 
+# -- tpm -----------------------------------------------------------------------
+
+# while I don't use tpm myself, many people requested official support so here
+# is a seamless integration that automatically installs plugins in parallel
+
+# whenever a plugin introduces a variable to be used in 'status-left' or
+# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
+# 'tmux_conf_theme_status_right' variables.
+
+# by default, launching tmux will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_launch=true
+
+# by default, reloading the configuration will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_reload=true
+
+# by default, reloading the configuration will uninstall tpm and plugins when no
+# plugins are enabled
+#   - true (default)
+#   - false
+tmux_conf_uninstall_plugins_on_reload=true
+
+# /!\ the tpm bindings differ slightly from upstream:
+#   - installing plugins: <prefix> + I
+#   - uninstalling plugins: <prefix> + Alt + u
+#   - updating plugins: <prefix> + u
+
+# /!\ do not add set -g @plugin 'tmux-plugins/tpm'
+# /!\ do not add run '~/.tmux/plugins/tpm/tpm'
+
+# to enable a plugin, use the 'set -g @plugin' syntax:
+# visit https://github.com/tmux-plugins for available plugins
+set -g @plugin 'thewtex/tmux-mem-cpu-load'
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @continuum-restore 'on'
+
+
 # -- display -------------------------------------------------------------------
 
 # RGB 24-bit colour support, possible values are:
@@ -271,7 +313,7 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username_ssh}
 tmux_conf_theme_status_left="#{username}#{root}@#{hostname} | ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{online} "
 #tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{pretty_pane_current_path} "
-tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} | CPU: #{cpu_percentage}"
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , #[fg=green]#($TMUX_PLUGIN_MANAGER_PATH/tmux-mem-cpu-load/tmux-mem-cpu-load --colors --interval 1 --vertical-graph --averages-count 0)#[default]"
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
@@ -407,47 +449,6 @@ tmux_conf_urlscan_options="--compact --dedupe"
 set -g status-position top
 set -sg repeat-time 100                   # decrease repeat timeout
 
-
-# -- tpm -----------------------------------------------------------------------
-
-# while I don't use tpm myself, many people requested official support so here
-# is a seamless integration that automatically installs plugins in parallel
-
-# whenever a plugin introduces a variable to be used in 'status-left' or
-# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
-# 'tmux_conf_theme_status_right' variables.
-
-# by default, launching tmux will update tpm and all plugins
-#   - true (default)
-#   - false
-tmux_conf_update_plugins_on_launch=true
-
-# by default, reloading the configuration will update tpm and all plugins
-#   - true (default)
-#   - false
-tmux_conf_update_plugins_on_reload=true
-
-# by default, reloading the configuration will uninstall tpm and plugins when no
-# plugins are enabled
-#   - true (default)
-#   - false
-tmux_conf_uninstall_plugins_on_reload=true
-
-# /!\ the tpm bindings differ slightly from upstream:
-#   - installing plugins: <prefix> + I
-#   - uninstalling plugins: <prefix> + Alt + u
-#   - updating plugins: <prefix> + u
-
-# /!\ do not add set -g @plugin 'tmux-plugins/tpm'
-# /!\ do not add run '~/.tmux/plugins/tpm/tpm'
-
-# to enable a plugin, use the 'set -g @plugin' syntax:
-# visit https://github.com/tmux-plugins for available plugins
-set -g @plugin 'tmux-plugins/tmux-copycat'
-set -g @plugin 'tmux-plugins/tmux-cpu'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @continuum-restore 'on'
 
 # -- Tokyo Night Theme ---------------------------------------------------------
 # set -g @plugin "janoamaral/tokyo-night-tmux"
