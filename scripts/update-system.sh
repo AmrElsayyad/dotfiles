@@ -89,12 +89,21 @@ fi
 # ─── PIPX ──────────────────────────────────────────────────────────
 if command -v pipx >/dev/null 2>&1; then
     echo_section "Upgrading pipx packages"
-    pipx_out=$(pipx upgrade-all 2>&1)
-    if echo "$pipx_out" | grep -iq "upgraded"; then
-        pkgs=$(echo "$pipx_out" | awk '/upgraded/ {print $1}' | paste -sd ', ' -)
-        update_summary+=("pipx: $pkgs")
-    else
-        echo "No pipx packages needed upgrading."
+    temp_pipx_out=$(mktemp)
+    pipx upgrade-all 2>&1 | tee "$temp_pipx_out"
+    pipx_status=${pipestatus[1]}
+    pipx_out=$(cat "$temp_pipx_out")
+    rm "$temp_pipx_out"
+
+    if [[ $pipx_status -ne 0 ]]; then
+        error_summary+=("pipx: upgrade command failed with status $pipx_status")
+    fi
+
+    if echo "$pipx_out" | grep -iq "upgraded package"; then
+        pkgs=$(echo "$pipx_out" | grep "upgraded package" | sed -E "s/upgraded package '([^']+)'.*/\1/" | paste -sd ', ' -)
+        if [ -n "$pkgs" ]; then
+            update_summary+=("pipx: $pkgs")
+        fi
     fi
 fi
 
@@ -131,7 +140,7 @@ if command -v pip >/dev/null 2>&1; then
 fi
 
 # ─── FINAL SUMMARY ─────────────────────────────────────────────────
-echo "\n$(blue ">>> UPDATE SUMMARY")"
+echo "$(blue ">>> UPDATE SUMMARY")"
 if (( ${#update_summary[@]} > 0 )); then
     for line in "${update_summary[@]}"; do
         echo "  $(green "✓") $line"
@@ -142,8 +151,8 @@ fi
 
 # ─── ERROR SUMMARY ─────────────────────────────────────────────────
 if (( ${#error_summary[@]} > 0 )); then
-    echo "\n$(red ">>> Warning: ERROR SUMMARY")"
+    echo "$(red ">>> Warning: ERROR SUMMARY")"
     for err in "${error_summary[@]}"; do
-        echo "  $(red "Cross") $err"
+        echo "  $(red "✗") $err"
     done
 fi
