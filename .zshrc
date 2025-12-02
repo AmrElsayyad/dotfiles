@@ -161,9 +161,6 @@ alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mo
 
 # DPI VMs
 export DPI_SSH_KEYS_DIR=$HOME/projects/GS/DPI-ScoreCard.extra/ssh-keys
-alias ssh-dpi-agent="ssh -i \"$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem\" -p 2025 DPIAgentAdmin@dpi-agent"
-alias ssh-dpi-dev="ssh -i \"$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem\" -p 2025 DPIAdmin@dpi-dev-development-master1"
-alias ssh-dpi-test="ssh -i \"$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem\" -p 2024 DPIAdmin@dpi-dev-master-1"
 
 function scp-dpi-from() {
     # $1: env (agent/dev/test)
@@ -208,34 +205,11 @@ function scp-dpi-to() {
     esac
 }
 
-function keti-dpi-app() {
-    if [[ -z "$1" ]]; then
-        echo "Error: Please provide an environment (dev/test)"
-        return 1
-    fi
-    if [[ -z "$2" ]]; then
-        echo "Error: Please provide an app name"
-        return 1
-    fi
-    case "$1" in
-        dev)
-            kubectl exec -tin microservices-ns "$(kubectl get pods -n microservices-ns --no-headers -o custom-columns=':metadata.name' -l \"app=$2\" --context dpi-dev | head -1)" -- bash
-            ;;
-        test)
-            kubectl exec -tin microservices-ns "$(kubectl get pods -n microservices-ns --no-headers -o custom-columns=':metadata.name' -l app=\"$2\" --context dpi-test | head -1)" -- bash
-            ;;
-        *)
-            echo "Error: Unknown environment $1 (dev/test)"
-            return 1
-            ;;
-    esac
-}
-
 # Fastfetch
 fastfetch
 
 # Connect Bluetooth headphones automatically
-LOGITECH_SPEAKERS="$(bluetoothctl paired-devices | grep Logi | cut -d ' ' -f 2)"
+LOGITECH_SPEAKERS="$(bluetoothctl devices Paired | grep Logi | cut -d ' ' -f 2)"
 if ! bluetoothctl info "$LOGITECH_SPEAKERS" | grep -q "Connected: yes"; then
     bluetoothctl connect $LOGITECH_SPEAKERS
 fi
