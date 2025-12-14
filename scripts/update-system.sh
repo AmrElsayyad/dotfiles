@@ -38,7 +38,7 @@ if command -v snap >/dev/null 2>&1; then
     echo_section "Updating Snap packages"
     snap_out=$(sudo snap refresh 2>&1)
     if echo "$snap_out" | grep -qv "All snaps up to date"; then
-        pkgs=$(echo "$snap_out" | grep -oE ' [a-zA-Z0-9._-]+ ' | tr -d ' ' | paste -sd ', ' -)
+        pkgs=$(echo "$snap_out" | grep "refreshed" | awk '{print $1}' | paste -sd ', ' -)
         update_summary+=("snap: $pkgs")
     else
         echo "All snaps up to date."
