@@ -22,6 +22,7 @@ plugins=(
     gh
     git
     golang
+    gradle
     history
     k9s
     kubectl
