@@ -159,51 +159,8 @@ alias cursor="~/Applications/Cursor-0.50-x86_64.AppImage"
 # Avante Zen Mode
 alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
 
-# DPI VMs
-export DPI_SSH_KEYS_DIR=$HOME/projects/GS/DPI-ScoreCard.extra/ssh-keys
-
-function scp-dpi-from() {
-    # $1: env (agent/dev/test)
-    # $2: remote_path (source)
-    # $3: local_path (destination)
-    case "$1" in
-        agent)
-            # take all the arguments as source and the last one as destination
-            scp -ri "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 DPIAdmin@dpi-agent:${@:2:$# -2} ${@: -1}
-            ;;
-        dev)
-            scp -ri "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 DPIAdmin@dpi-dev-development-master1:${@:2:$# -2} ${@: -1}
-            ;;
-        test)
-            scp -ri "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 DPIAdmin@dpi-dev-master-1:${@:2:$# -2} ${@: -1}
-            ;;
-        *)
-            echo "Error: Unknown environment $1 (agent/dev/test)"
-            return 1
-            ;;
-    esac
-}
-
-function scp-dpi-to() {
-    # $1: env (agent/dev/test)
-    # $2: local_path (source)
-    # $3: remote_path (destination)
-    case "$1" in
-        agent)
-            scp -ri "$DPI_SSH_KEYS_DIR/DPI-AGENT_key.pem" -P 2025 ${@:2:$# -2} DPIAdmin@dpi-agent:${@: -1}
-            ;;
-        dev)
-            scp -ri "$DPI_SSH_KEYS_DIR/dpi-dev-development-master1_key_0110.pem" -P 2025 ${@:2:$# -2} DPIAdmin@dpi-dev-development-master1:${@: -1}
-            ;;
-        test)
-            scp -ri "$DPI_SSH_KEYS_DIR/DPI-DEV-MASTER-1_keySTG.pem" -P 2024 ${@:2:$# -2} DPIAdmin@dpi-dev-master-1:${@: -1}
-            ;;
-        *)
-            echo "Error: Unknown environment $1 (agent/dev/test)"
-            return 1
-            ;;
-    esac
-}
+# opencode
+export PATH=/home/amr/.opencode/bin:$PATH
 
 # Fastfetch
 fastfetch
@@ -226,4 +183,3 @@ elif [[ $answer =~ ^(no|n)$ ]]; then
 else
     eval "$answer"
 fi
-
