@@ -1,4 +1,4 @@
-# : << EOF
+# : << 'EOF'
 # Oh my tmux!
 # 💛🩷💙🖤❤️🤍
 # https://github.com/gpakosz/.tmux
@@ -23,7 +23,7 @@ tmux_conf_preserve_stock_bindings=false
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_prompt=true
+tmux_conf_new_session_prompt=false
 
 # new session retains current path, possible values are:
 #   - true
@@ -57,48 +57,6 @@ tmux_conf_new_pane_retain_current_path=true
 #   - false (default)
 #   - disabled (do not modify split-window bindings)
 tmux_conf_new_pane_reconnect_ssh=true
-
-
-# -- tpm -----------------------------------------------------------------------
-
-# while I don't use tpm myself, many people requested official support so here
-# is a seamless integration that automatically installs plugins in parallel
-
-# whenever a plugin introduces a variable to be used in 'status-left' or
-# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
-# 'tmux_conf_theme_status_right' variables.
-
-# by default, launching tmux will update tpm and all plugins
-#   - true (default)
-#   - false
-tmux_conf_update_plugins_on_launch=true
-
-# by default, reloading the configuration will update tpm and all plugins
-#   - true (default)
-#   - false
-tmux_conf_update_plugins_on_reload=true
-
-# by default, reloading the configuration will uninstall tpm and plugins when no
-# plugins are enabled
-#   - true (default)
-#   - false
-tmux_conf_uninstall_plugins_on_reload=true
-
-# /!\ the tpm bindings differ slightly from upstream:
-#   - installing plugins: <prefix> + I
-#   - uninstalling plugins: <prefix> + Alt + u
-#   - updating plugins: <prefix> + u
-
-# /!\ do not add set -g @plugin 'tmux-plugins/tpm'
-# /!\ do not add run '~/.tmux/plugins/tpm/tpm'
-
-# to enable a plugin, use the 'set -g @plugin' syntax:
-# visit https://github.com/tmux-plugins for available plugins
-set -g @plugin 'thewtex/tmux-mem-cpu-load'
-set -g @plugin 'tmux-plugins/tmux-copycat'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @continuum-restore 'on'
 
 
 # -- display -------------------------------------------------------------------
@@ -358,8 +316,8 @@ tmux_conf_theme_synchronized_attr="none"
 # battery bar symbols
 tmux_conf_battery_bar_symbol_full="◼"
 tmux_conf_battery_bar_symbol_empty="◻"
-# tmux_conf_battery_bar_symbol_full="♥"
-# tmux_conf_battery_bar_symbol_empty="·"
+#tmux_conf_battery_bar_symbol_full="♥"
+#tmux_conf_battery_bar_symbol_empty="·"
 
 # battery bar length (in number of symbols), possible values are:
 #   - auto
@@ -442,36 +400,60 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # unbind C-b
 # set -g prefix C-a
 # bind C-a send-prefix
+bind C-c command-prompt -p "New Session:" "new-session -A -s '%%'"
 
 # if you don't want Oh my tmux! to alter a binding or a setting, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
 
+# display a message after toggling mouse support
+bind m run "cut -c3- '#{TMUX_CONF}' | sh -s _toggle_mouse" \; display 'mouse #{?#{mouse},on,off}'
+
+# move status line to top
 set -g status-position top
 set -sg repeat-time 100                   # decrease repeat timeout
 
 
-# -- Tokyo Night Theme ---------------------------------------------------------
-# set -g @plugin "janoamaral/tokyo-night-tmux"
-#
-# set -g @tokyo-night-tmux_theme night      # storm | day | default to 'night'
-# set -g @tokyo-night-tmux_transparent 1    # 1 or 0
-# set -g @tokyo-night-tmux_show_hostname 0  # 1 or 0
-#
-# set -g @tokyo-night-tmux_show_datetime 0
-# set -g @tokyo-night-tmux_date_format MYD
-# set -g @tokyo-night-tmux_time_format 12H
-#
-# set -g @tokyo-night-tmux_show_netspeed 1
-# set -g @tokyo-night-tmux_netspeed_iface "wlp0s20f3" # Detected via default route
-# set -g @tokyo-night-tmux_netspeed_showip 0      # Display IPv4 address (default 0)
-# set -g @tokyo-night-tmux_netspeed_refresh 1     # Update interval in seconds (default 1)
-#
-# set -g @tokyo-night-tmux_show_path 1
-# set -g @tokyo-night-tmux_path_format relative # 'relative' or 'full'
-#
-# set -g @tokyo-night-tmux_show_battery_widget 1
-# set -g @tokyo-night-tmux_battery_name "BAT1"  # some linux distro have 'BAT0'
-# set -g @tokyo-night-tmux_battery_low_threshold 21 # default
+# -- tpm -----------------------------------------------------------------------
+
+# while I don't use tpm myself, many people requested official support so here
+# is a seamless integration that automatically installs plugins in parallel
+
+# whenever a plugin introduces a variable to be used in 'status-left' or
+# 'status-right', you can use it in 'tmux_conf_theme_status_left' and
+# 'tmux_conf_theme_status_right' variables.
+
+# by default, launching tmux will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_launch=true
+
+# by default, reloading the configuration will update tpm and all plugins
+#   - true (default)
+#   - false
+tmux_conf_update_plugins_on_reload=true
+
+# by default, reloading the configuration will uninstall tpm and plugins when no
+# plugins are enabled
+#   - true (default)
+#   - false
+tmux_conf_uninstall_plugins_on_reload=true
+
+# /!\ the tpm bindings differ slightly from upstream:
+#   - installing plugins: <prefix> + I
+#   - uninstalling plugins: <prefix> + Alt + u
+#   - updating plugins: <prefix> + u
+
+# /!\ do not add set -g @plugin 'tmux-plugins/tpm'
+# /!\ do not add run '~/.tmux/plugins/tpm/tpm'
+
+# /!\ the 'set -g @tpm_plugins' syntax is not supported
+# to enable a plugin, use the 'set -g @plugin' syntax:
+# visit https://github.com/tmux-plugins for available plugins
+set -g @plugin 'thewtex/tmux-mem-cpu-load'
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @continuum-restore 'on'
 
 # -- custom variables ----------------------------------------------------------
 
