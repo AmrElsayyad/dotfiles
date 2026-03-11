@@ -92,11 +92,12 @@ fi
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vi'
+if command -v nvim >/dev/null 2>&1; then
+  export EDITOR='nvim'
+  export SUDO_EDITOR='nvim'
 else
-    export EDITOR='nvim'
-    export SUDO_EDITOR='nvim'
+  export EDITOR='vi'
+  export SUDO_EDITOR='vi'
 fi
 
 # Compilation flags
@@ -117,8 +118,6 @@ fi
 export NVIM_DIR="$HOME/.config/nvim"
 
 alias snap="sudo snap"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias fd=fdfind
 
 # Alacritty completions
@@ -135,9 +134,6 @@ DOCKER_FORMAT="{{.Image}}\t{{.Status}}\t{{.Ports}}"
 alias dcps="docker compose ps --format 'table {{.Name}}\t${DOCKER_FORMAT}'"
 alias dps="docker ps --format 'table {{.Names}}\t${DOCKER_FORMAT}'"
 alias dpsa="docker ps -a --format 'table {{.Names}}\t${DOCKER_FORMAT}'"
-
-# Podman Compose Provider
-export PODMAN_COMPOSE_PROVIDER=podman-compose
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -164,12 +160,6 @@ export PATH=/home/amr/.opencode/bin:$PATH
 
 # Fastfetch
 fastfetch
-
-# Connect Bluetooth headphones automatically
-LOGITECH_SPEAKERS="$(bluetoothctl devices Paired | grep Logi | cut -d ' ' -f 2)"
-if ! bluetoothctl info "$LOGITECH_SPEAKERS" | grep -q "Connected: yes"; then
-    bluetoothctl connect $LOGITECH_SPEAKERS
-fi
 
 # Update the system
 read "answer?Do you want to update the system? [y/N] "
