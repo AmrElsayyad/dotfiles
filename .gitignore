@@ -8,6 +8,7 @@
 !.config/kitty/
 !.config/kitty/*
 !.gitignore
+!.pre-commit-config.yaml
 !scripts/
 !scripts/*
 !.tmux.conf.local

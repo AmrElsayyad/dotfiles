@@ -115,6 +115,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH="$PATH:$HOME/.local/bin"
+
 export NVIM_DIR="$HOME/.config/nvim"
 
 alias snap="sudo snap"
