@@ -79,11 +79,6 @@ ZSH_TMUX_AUTONAME_SESSION=true
 # OMZ plugins are defined in ~/.zshenv
 source "$HOME/.zshenv"
 
-# Load environment variables from .env file
-if [ -f "$HOME/.env" ]; then
-    source "$HOME/.env"
-fi
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -115,50 +110,20 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$PATH:$HOME/.local/bin"
-
-export NVIM_DIR="$HOME/.config/nvim"
-
-alias snap="sudo snap"
-alias fd=fdfind
-
-# Alacritty completions
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-# User scripts
-export PATH=$PATH:~/scripts
-
-# Use Bake for Docker Compose
-export COMPOSE_BAKE=true
-
-# Docker aliases
-DOCKER_FORMAT="{{.Image}}\t{{.Status}}\t{{.Ports}}"
-alias dcps="docker compose ps --format 'table {{.Name}}\t${DOCKER_FORMAT}'"
-alias dps="docker ps --format 'table {{.Names}}\t${DOCKER_FORMAT}'"
-alias dpsa="docker ps -a --format 'table {{.Names}}\t${DOCKER_FORMAT}'"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
+# cargo
+source "$HOME/.cargo/env"
 
 # go version manager
 [[ -s "/home/amr/.gvm/scripts/gvm" ]] && source "/home/amr/.gvm/scripts/gvm"
 
-# Turso
-export PATH="$PATH:/home/amr/.turso"
-
 # jenv
-export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
-# cursor
-alias cursor="~/Applications/Cursor-0.50-x86_64.AppImage"
+# Skip the rest of the script if not running interactively
+[[ -o interactive ]] || exit 0
 
-# Avante Zen Mode
-alias avante='nvim -c "lua vim.defer_fn(function()require(\"avante.api\").zen_mode()end, 100)"'
-
-# opencode
-export PATH=/home/amr/.opencode/bin:$PATH
+# Alacritty completions
+fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Fastfetch
 fastfetch
@@ -175,3 +140,4 @@ elif [[ $answer =~ ^(no|n)$ ]]; then
 else
     eval "$answer"
 fi
+
