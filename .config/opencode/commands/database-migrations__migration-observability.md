@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/database-migrations__migration-observability.md

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/framework-migration__code-migrate.md

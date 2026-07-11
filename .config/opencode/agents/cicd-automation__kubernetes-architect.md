@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/cicd-automation__kubernetes-architect.md

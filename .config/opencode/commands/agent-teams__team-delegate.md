@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/agent-teams__team-delegate.md

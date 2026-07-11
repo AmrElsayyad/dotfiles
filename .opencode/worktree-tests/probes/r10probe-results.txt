@@ -1,0 +1,38 @@
+r9x: rc=0 marker=LIVE stderr='cat: x: No such file or directory'
+r9xbt: rc=0 marker=LIVE stderr='cat: x: No such file or directory'
+r9x2: rc=0 marker=LIVE stderr='cat: /tmp/user/1000/opencode/typecheck/r10probes: Is a directory'
+r9xctl: rc=1 marker=DEAD stderr="cat: x: No such file or directory\nr9xctl.sh: line 3: unexpected EOF while looking for matching `''"
+c1: rc=0 marker=LIVE stderr=''
+c1x: rc=0 marker=LIVE stderr=''
+c1-neg-bel: rc=0 marker=DEAD stderr="c1-neg-bel.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `\\c')"
+c1-neg-c: rc=0 marker=DEAD stderr="c1-neg-c.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `\\c')"
+c1-neg-empty: rc=0 marker=DEAD stderr="c1-neg-empty.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `\\c')"
+c-mid: rc=0 marker=LIVE stderr=''
+ca-double: rc=0 marker=LIVE stderr=''
+ca-single: rc=0 marker=DEAD stderr="ca-single.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x01\x01OF')"
+cb-single: rc=0 marker=LIVE stderr=''
+cb-double: rc=0 marker=DEAD stderr="cb-double.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x02OF')"
+cz-single: rc=0 marker=LIVE stderr=''
+x01-double: rc=0 marker=LIVE stderr=''
+x01-single: rc=0 marker=DEAD stderr="x01-single.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x01\x01OF')"
+x7f-esc: rc=0 marker=LIVE stderr=''
+x7f-single: rc=0 marker=DEAD stderr="x7f-single.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x01\x7fOF')"
+x7f-double: rc=0 marker=DEAD stderr="x7f-double.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x01\x7fOF')"
+oct01-double: rc=0 marker=LIVE stderr=''
+raw01-double: rc=0 marker=LIVE stderr=''
+raw01-single: rc=0 marker=DEAD stderr="raw01-single.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x01\x01OF')"
+raw7f-esc: rc=0 marker=LIVE stderr=''
+raw7f-single: rc=0 marker=DEAD stderr="raw7f-single.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x01\x7fOF')"
+u01-double: rc=0 marker=LIVE stderr=''
+u7f-esc: rc=0 marker=LIVE stderr=''
+lit-001: rc=0 marker=DEAD stderr="lit-001.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x01\x01OF')"
+a7e: rc=0 marker=DEAD stderr="a7e.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `EY')"
+a7ey: rc=0 marker=LIVE stderr=''
+nulab0: rc=0 marker=DEAD stderr="nulab0.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `B')"
+subnl: rc=0 marker=DEAD stderr="subnl.sh: line 4: warning: here-document at line 2 delimited by end-of-file (wanted `$(echo\nEOF)')"
+innerredir: rc=0 marker=DEAD stderr='innerredir.sh: line 1: warning: command substitution: 1 unterminated here-document\ninnerredir.sh: li'
+r8c: rc=0 marker=DEAD stderr='r8c.sh: line 1: warning: command substitution: 1 unterminated here-document\nr8c.sh: line 4: warning:'
+v400: rc=0 marker=LIVE stderr=''
+u-nodigits: rc=0 marker=LIVE stderr=''
+u8-nodigits: rc=0 marker=LIVE stderr=''
+b9: rc=0 marker=DEAD stderr="b9.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `EOF\r')"

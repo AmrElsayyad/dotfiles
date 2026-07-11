@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/api-scaffolding__fastapi-pro.md

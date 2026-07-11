@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/unit-testing__test-automator.md

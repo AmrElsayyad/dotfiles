@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/python-development__python-scaffold.md

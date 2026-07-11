@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/web-scripting__ruby-pro.md

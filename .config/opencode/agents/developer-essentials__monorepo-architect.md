@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/developer-essentials__monorepo-architect.md

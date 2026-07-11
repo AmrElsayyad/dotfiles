@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/llm-application-dev__vector-database-engineer.md

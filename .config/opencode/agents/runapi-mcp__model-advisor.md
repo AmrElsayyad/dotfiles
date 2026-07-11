@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/runapi-mcp__model-advisor.md

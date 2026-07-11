@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/content-marketing__search-specialist.md

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/observability-monitoring__network-engineer.md

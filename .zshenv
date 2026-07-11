@@ -1,11 +1,17 @@
 export PATH="$HOME/.opencode/bin:$HOME/.turso:$HOME/.jenv/bin:$BUN_INSTALL/bin:$HOME/.local/bin:$PATH:$HOME/scripts"
-export ZSH="$HOME/.oh-my-zsh"
+
 export BUN_INSTALL="$HOME/.bun"
-export COMPOSE_BAKE=true
-export NVIM_DIR="$HOME/.config/nvim"
 export CAVEMAN_DEFAULT_MODE=full
-export SKILLSPECTOR_PROVIDER=nv_build
+export COMPOSE_BAKE=true
+export DO_NOT_TRACK=1
+export LLAMA_CPP_PATH="$HOME/.local/bin"
+export NVIM_DIR="$HOME/.config/nvim"
+export OMNIROUTE_ROTATE_ON_400=true
+export OPENCODE_EXPERIMENTAL_OUTPUT_TOKEN_MAX=128000
+export REQUIRE_API_KEY=true
 # export SKILLSPECTOR_MODEL=glm-5.2
+export SKILLSPECTOR_PROVIDER=nv_build
+export ZSH="$HOME/.oh-my-zsh"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -49,6 +55,7 @@ plugins=(
     vi-mode
     zoxide
     zsh-autosuggestions
+    zsh-fzf-history-search
     zsh-syntax-highlighting
 )
 
@@ -57,15 +64,16 @@ source $ZSH/oh-my-zsh.sh
 alias rsync-copy='rsync -avz --info=progress2 -h'
 alias rsync-move='rsync -avz --info=progress2 -h --remove-source-files'
 alias rsync-synchronize='rsync -avzu --delete --info=progress2 -h'
-alias rsync-update='rsync -avzu --info=progress2 -h'                                                                                               /0.0s
+alias rsync-update='rsync -avzu --info=progress2 -h'
 
 DOCKER_FORMAT="{{.Image}}\t{{.Status}}\t{{.Ports}}"
 alias dcps="docker compose ps --format 'table {{.Name}}\t${DOCKER_FORMAT}'"
 alias dps="docker ps --format 'table {{.Names}}\t${DOCKER_FORMAT}'"
 alias dpsa="docker ps -a --format 'table {{.Names}}\t${DOCKER_FORMAT}'"
 
-alias snap="sudo snap"
 alias fd=fdfind
-alias opencode='headroom wrap opencode'
-alias oc='headroom wrap opencode'
+alias oc=opencode
+alias p=popd
+alias snap="sudo snap"
+alias v=nvim
 

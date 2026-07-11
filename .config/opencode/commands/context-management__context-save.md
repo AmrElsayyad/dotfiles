@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/context-management__context-save.md

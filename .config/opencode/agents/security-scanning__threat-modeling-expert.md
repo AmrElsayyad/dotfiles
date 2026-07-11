@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/security-scanning__threat-modeling-expert.md

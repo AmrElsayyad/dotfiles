@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/c4-architecture__c4-component.md

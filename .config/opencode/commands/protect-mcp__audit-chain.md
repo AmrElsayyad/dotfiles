@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/protect-mcp__audit-chain.md

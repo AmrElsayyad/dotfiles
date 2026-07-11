@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/shell-scripting__bash-pro.md

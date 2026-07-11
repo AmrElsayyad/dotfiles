@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/operating-kit__deploy-with-verification.md

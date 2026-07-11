@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/meigen-ai-design__gallery-researcher.md

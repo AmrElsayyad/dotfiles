@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/observability-monitoring__slo-implement.md

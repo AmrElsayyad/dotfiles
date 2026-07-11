@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/seo-technical-optimization__seo-structure-architect.md

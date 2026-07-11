@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/quantitative-trading__risk-manager.md

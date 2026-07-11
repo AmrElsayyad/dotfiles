@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/distributed-debugging__debug-trace.md

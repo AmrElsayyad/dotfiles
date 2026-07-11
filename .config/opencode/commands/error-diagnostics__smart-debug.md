@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/error-diagnostics__smart-debug.md

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/comprehensive-review__full-review.md

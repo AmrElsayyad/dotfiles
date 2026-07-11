@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/database-design__sql-pro.md

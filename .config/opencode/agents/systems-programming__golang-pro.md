@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/systems-programming__golang-pro.md

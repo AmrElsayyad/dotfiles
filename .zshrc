@@ -119,6 +119,14 @@ source "$HOME/.cargo/env"
 # jenv
 eval "$(jenv init -)"
 
+# pnpm
+export PNPM_HOME="/home/amr/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
 # Skip the rest of the script if not running interactively
 [[ -o interactive ]] || exit 0
 

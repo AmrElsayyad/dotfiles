@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/multi-platform-apps__backend-architect.md

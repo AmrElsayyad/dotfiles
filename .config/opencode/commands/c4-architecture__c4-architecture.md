@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/c4-architecture__c4-architecture.md

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/conductor__status.md

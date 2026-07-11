@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/database-cloud-optimization__cost-optimize.md

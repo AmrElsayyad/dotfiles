@@ -23,7 +23,8 @@ tmux_conf_preserve_stock_bindings=false
 #   - true
 #   - false (default)
 #   - disabled (do not modify new-session bindings)
-tmux_conf_new_session_prompt=false
+tmux_conf_new_session_prompt=false # true is not working, so creating a custom binding
+bind C-c command-prompt -p "New Session:" "new-session -A -s '%%'"
 
 # new session retains current path, possible values are:
 #   - true
@@ -400,7 +401,6 @@ set -g mode-keys vi
 # unbind C-b
 # set -g prefix C-a
 # bind C-a send-prefix
-bind C-c command-prompt -p "New Session:" "new-session -A -s '%%'"
 
 # if you don't want Oh my tmux! to alter a binding or a setting, use #!important
 # bind c new-window -c '#{pane_current_path}' #!important
@@ -449,11 +449,11 @@ tmux_conf_uninstall_plugins_on_reload=true
 # /!\ the 'set -g @tpm_plugins' syntax is not supported
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
-set -g @plugin 'thewtex/tmux-mem-cpu-load'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
+set -g @plugin 'thewtex/tmux-mem-cpu-load'
 
 # -- custom variables ----------------------------------------------------------
 

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/startup-business-analyst__business-case.md

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/plugin-eval__certify.md

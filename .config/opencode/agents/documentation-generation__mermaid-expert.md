@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/documentation-generation__mermaid-expert.md

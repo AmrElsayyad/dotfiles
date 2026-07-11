@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/application-performance__performance-optimization.md

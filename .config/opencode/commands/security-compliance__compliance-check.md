@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/security-compliance__compliance-check.md

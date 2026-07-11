@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/security-scanning__security-auditor.md

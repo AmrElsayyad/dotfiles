@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/julia-development__julia-pro.md

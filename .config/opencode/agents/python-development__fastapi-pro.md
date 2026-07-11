@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/python-development__fastapi-pro.md

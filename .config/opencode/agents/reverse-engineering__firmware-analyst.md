@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/reverse-engineering__firmware-analyst.md

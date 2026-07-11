@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/customer-sales-automation__customer-support.md

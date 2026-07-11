@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/security-scanning__security-dependencies.md

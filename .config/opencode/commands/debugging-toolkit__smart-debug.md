@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/debugging-toolkit__smart-debug.md

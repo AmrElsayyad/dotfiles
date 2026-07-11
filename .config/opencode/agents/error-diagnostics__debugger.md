@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/error-diagnostics__debugger.md

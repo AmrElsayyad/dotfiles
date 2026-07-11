@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/ui-design__accessibility-audit.md

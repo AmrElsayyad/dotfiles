@@ -1,0 +1,14 @@
+cc-bel: rc=0 marker=DEAD stderr="cc-bel.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x1cc'"
+cc-1cc: rc=0 marker=LIVE stderr=''
+cc-1c: rc=0 marker=DEAD stderr="cc-1c.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x1cc')"
+cq-bel: rc=0 marker=DEAD stderr="cq-bel.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x1c''"
+cq-1c: rc=0 marker=DEAD stderr="cq-1c.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted `E\x1c'')"
+cq-1cq: rc=0 marker=LIVE stderr=''
+plain01-esc: rc=0 marker=DEAD stderr='plain01-esc.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted '
+plain01-single: rc=0 marker=LIVE stderr=''
+dq01-esc: rc=0 marker=LIVE stderr=''
+dq01-single: rc=0 marker=DEAD stderr='dq01-single.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted '
+plain7f-esc: rc=0 marker=DEAD stderr='plain7f-esc.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted '
+plain7f-single: rc=0 marker=LIVE stderr=''
+dq7f-esc: rc=0 marker=LIVE stderr=''
+dq7f-single: rc=0 marker=DEAD stderr='dq7f-single.sh: line 4: warning: here-document at line 1 delimited by end-of-file (wanted '

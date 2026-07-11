@@ -107,6 +107,20 @@ if command -v pipx >/dev/null 2>&1; then
     fi
 fi
 
+# ─── UV TOOLS ──────────────────────────────────────────────────────
+if command -v uv >/dev/null 2>&1; then
+    echo_section "Updating uv tools"
+    uv_out=$(uv tool upgrade --all 2>&1)
+    # "Modified <name> environment" = tool deps upgraded
+    upgraded=$(echo "$uv_out" | grep -oE "Modified ([a-zA-Z0-9_.-]+) environment" | awk '{print $2}' | sort -u)
+    if [ -n "$upgraded" ]; then
+        uv_list=$(echo "$upgraded" | paste -sd ', ' -)
+        update_summary+=("uv-tools: $uv_list")
+    else
+        echo "All uv tools up to date."
+    fi
+fi
+
 # ─── PIP (user) ───────────────────────────────────────────────────
 if command -v pip >/dev/null 2>&1; then
     echo_section "Updating pip packages (user-installed)"
@@ -117,7 +131,7 @@ if command -v pip >/dev/null 2>&1; then
     if [ -n "$outdated_pkgs" ]; then
         for pkg in ${(f)outdated_pkgs}; do
             echo "→ Updating $pkg ..."
-            if pip install --user --upgrade "$pkg" >/dev/null 2>&1; then
+            if pip install --user --upgrade --break-system-packages "$pkg" >/dev/null 2>&1; then
                 updated_pip_packages+=("$pkg")
             else
                 echo "  $(red "Failed to update $pkg")"

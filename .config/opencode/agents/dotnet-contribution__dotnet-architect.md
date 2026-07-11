@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/dotnet-contribution__dotnet-architect.md

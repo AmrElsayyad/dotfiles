@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/dgx-spark-ops__spark-preflight.md

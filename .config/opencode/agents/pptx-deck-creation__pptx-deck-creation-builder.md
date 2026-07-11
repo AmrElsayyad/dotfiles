@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/pptx-deck-creation__pptx-deck-creation-builder.md

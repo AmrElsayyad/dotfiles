@@ -1,0 +1,834 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "compaction": {
+    "auto": true
+  },
+  "default_agent": "build",
+  "share": "disabled",
+  "snapshots": true,
+  "instructions": [
+    "https://raw.githubusercontent.com/JRedeker/opencode-shell-strategy/trunk/shell_strategy.md"
+  ],
+  "permissions": [
+    {
+      "action": "shell",
+      "resource": "*",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "df *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "du *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "file *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "head *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "ls *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "lsmod *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "pwd",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "read *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "readlink *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "tail *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "tree *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "wc *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "grep *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "jq *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "yq *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "command -v *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "date *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "echo *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "env",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "hostname",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "printenv *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "ps *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "tldr *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "type *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "uname *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "which *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "whoami",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh auth status",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh api -X GET *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh api --method GET *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh issue list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh issue view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh issue status",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh pr list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh pr view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh pr diff *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh pr checks *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh pr status",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh repo view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh repo list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh release list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh release view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh gist list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh gist view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh run list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh run view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh run watch *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh workflow list *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh workflow view *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh search *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh status",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "gh repo delete *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh auth login*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh auth refresh*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh auth token*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh secret *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh ssh-key *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh api -X DELETE *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh api --method POST *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "gh api --method PATCH *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "gh api --method PUT *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "gh api --method DELETE *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "gh *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git branch *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git diff *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git log *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git remote *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git show *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "git status *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bun --version",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bun outdated *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bun run *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bun test *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bunx --version",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bun pm *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bun pm ls *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bun pm why *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go test *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "go vet *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "nl *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "od *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "npm run lint *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "npm run typecheck *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "npm test *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "pnpm lint *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "pnpm test *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "pnpm typecheck *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "pytest *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "ruff check *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": ". *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "alias *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "awk *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "base64 *",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "bun *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bunx *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "cd *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "export *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "node *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "npx *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "perl *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "python *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "python3 *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "sed -i *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "set",
+      "effect": "allow"
+    },
+    {
+      "action": "shell",
+      "resource": "source *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "tee *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "unset *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "xargs *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bun add *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bun install *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bun remove *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bun update *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "bun upgrade *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "curl *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "wget *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "aws *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "az *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "docker *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "gcloud *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "kubectl *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "terraform *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git checkout *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git reset *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "git restore *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "cp *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "mv *",
+      "effect": "ask"
+    },
+    {
+      "action": "shell",
+      "resource": "chmod *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "chown *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "dd *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "exec *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "eval *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "find * -delete",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "mkfs*",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "reboot *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "rm *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "rmdir *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "shutdown *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "su *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "sudo *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "bun publish *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git clean *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "git push *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "npm publish *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "pnpm publish *",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "curl * | bash",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "curl * | sh",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "wget * | bash",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "wget * | sh",
+      "effect": "deny"
+    },
+    {
+      "action": "shell",
+      "resource": "bash -euo pipefail *",
+      "effect": "ask"
+    }
+  ],
+  "plugins": [
+    {
+      "package": "@omniroute/opencode-plugin-v2",
+      "options": {
+        "providerId": "omniroute",
+        "baseURL": "http://localhost:20128"
+      }
+    },
+    "@dietrichgebert/ponytail",
+    "@tarquinen/opencode-dcp",
+    "@zilliz/memsearch-opencode"
+  ],
+  "mcp": {
+    "servers": {
+      "codebase-memory-mcp": {
+        "command": ["codebase-memory-mcp", "mcp"],
+        "type": "local"
+      },
+      "codegraph": {
+        "type": "local",
+        "command": ["codegraph", "serve", "--mcp"],
+        "codemode": false
+      },
+      "skillspector": {
+        "command": ["skillspector", "mcp"],
+        "type": "local"
+      },
+      "serena": {
+        "type": "local",
+        "command": [
+          "uvx",
+          "--from",
+          "serena-agent",
+          "serena",
+          "start-mcp-server",
+          "--project-from-cwd",
+          "--context",
+          "agent",
+          "--open-web-dashboard",
+          "False"
+        ]
+      },
+      "rea": {
+        "type": "local",
+        "command": ["npx", "-y", "rea-agents@6.7.0", "mcp"]
+      }
+    }
+  },
+  "providers": {
+    "omniroute": {
+      "name": "OmniRoute",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://localhost:20128/v1"
+      },
+      "models": {
+        "my-combo": {
+          "name": "my-combo"
+        }
+      },
+      "body": {
+        "max_tokens": 25000
+      }
+    },
+    "openrouter": {
+      "body": {
+        "max_tokens": 25000
+      }
+    }
+  }
+}

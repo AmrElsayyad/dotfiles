@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/deployment-validation__cloud-architect.md

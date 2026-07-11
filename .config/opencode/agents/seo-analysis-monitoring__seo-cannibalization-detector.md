@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/seo-analysis-monitoring__seo-cannibalization-detector.md

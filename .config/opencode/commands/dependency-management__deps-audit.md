@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/dependency-management__deps-audit.md

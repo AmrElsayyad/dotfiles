@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/protect-mcp__receipt-verifier.md

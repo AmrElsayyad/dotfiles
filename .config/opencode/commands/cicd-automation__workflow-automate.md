@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/cicd-automation__workflow-automate.md

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/plugin-eval__eval-judge.md

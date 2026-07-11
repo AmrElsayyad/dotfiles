@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/hr-legal-compliance__hr-pro.md

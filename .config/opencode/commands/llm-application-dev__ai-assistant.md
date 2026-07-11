@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/llm-application-dev__ai-assistant.md

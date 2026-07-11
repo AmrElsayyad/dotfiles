@@ -1,3 +1,11 @@
-[submodule ".config/nvim"]
+[submodule "nvim"]
 	path = .config/nvim
 	url = git@github.com:AmrElsayyad/nvim.git
+
+[submodule "oh-my-zsh"]
+  path = .oh-my-zsh
+  url = git@github.com:ohmyzsh/ohmyzsh.git
+
+[submodule "zsh-fzf-history-search"]
+  path = .oh-my-zsh/custom/plugins/zsh-fzf-history-search
+  url = git@github.com:joshskidmore/zsh-fzf-history-search.git

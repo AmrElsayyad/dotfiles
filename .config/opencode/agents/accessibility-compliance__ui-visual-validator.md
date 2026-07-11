@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/accessibility-compliance__ui-visual-validator.md

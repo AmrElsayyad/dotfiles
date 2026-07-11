@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/operating-kit__prod-logs-health-check.md

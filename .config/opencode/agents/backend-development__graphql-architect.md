@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/backend-development__graphql-architect.md

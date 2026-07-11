@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/agents/kubernetes-operations__kubernetes-architect.md

@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/llm-finetuning__finetune.md

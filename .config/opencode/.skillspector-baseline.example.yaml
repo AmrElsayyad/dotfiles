@@ -1,0 +1,15 @@
+version: 1
+
+rules:
+  - id: "SQP-1"
+    reason: "Trigger-phrase breadth is a description nit, not a vuln"
+  - id: "SSD-2"
+    path: "example-skill/SKILL.md"
+    message: "*example false-positive phrase*"
+    reason: "False positive: benign trigger phrase, not an instruction"
+
+fingerprints:
+  - hash: "sha256:1a2b3c4d5e6f7081"
+    rule_id: "SDI-2"
+    file: "example-skill/SKILL.md"
+    reason: "Accepted — reads its own environment for context"

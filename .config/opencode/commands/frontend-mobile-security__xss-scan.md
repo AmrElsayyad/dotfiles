@@ -1,0 +1,1 @@
+/home/amr/agents/.opencode/commands/frontend-mobile-security__xss-scan.md
