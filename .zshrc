@@ -120,9 +120,9 @@ source "$HOME/.cargo/env"
 eval "$(jenv init -)"
 
 # pnpm
-export PNPM_HOME="/home/amr/.local/share/pnpm"
+export PNPM_HOME='/home/amr/.local/share/pnpm'
 case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
+  ":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
@@ -149,3 +149,6 @@ else
     eval "$answer"
 fi
 
+
+# bun completions
+[ -s "/home/amr/.bun/_bun" ] && source "/home/amr/.bun/_bun"

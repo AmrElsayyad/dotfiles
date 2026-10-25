@@ -1,20 +1,3 @@
-export PATH="$HOME/.opencode/bin:$HOME/.turso:$HOME/.jenv/bin:$BUN_INSTALL/bin:$HOME/.local/bin:$PATH:$HOME/scripts"
-
-export BUN_INSTALL="$HOME/.bun"
-export CAVEMAN_DEFAULT_MODE=full
-export COMPOSE_BAKE=true
-export DO_NOT_TRACK=1
-export LLAMA_CPP_PATH="$HOME/.local/bin"
-export NVIM_DIR="$HOME/.config/nvim"
-export OMNIROUTE_CHAT_ADMISSION_QUEUE_MS=5000
-export OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT=4
-export OMNIROUTE_ROTATE_ON_400=true
-export OPENCODE_EXPERIMENTAL_OUTPUT_TOKEN_MAX=128000
-export REQUIRE_API_KEY=true
-# export SKILLSPECTOR_MODEL=glm-5.2
-export SKILLSPECTOR_PROVIDER=nv_build
-export ZSH="$HOME/.oh-my-zsh"
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -61,10 +44,28 @@ plugins=(
     # zsh-syntax-highlighting
 )
 
-[[ -r "$HOME/.oh-my-zsh/custom/plugins/zsh-fzf-history-search/zsh-fzf-history-search.zsh" ]] && \
-source "$HOME/.oh-my-zsh/custom/plugins/zsh-fzf-history-search/zsh-fzf-history-search.zsh"
+export PATH="$HOME/.opencode/bin:$HOME/.turso:$HOME/.jenv/bin:$BUN_INSTALL/bin:$HOME/.local/bin:$PATH:$HOME/scripts"
+
+export BUN_INSTALL="$HOME/.bun"
+export CAVEMAN_DEFAULT_MODE=full
+export COMPOSE_BAKE=true
+export DO_NOT_TRACK=1
+export LLAMA_CPP_PATH="$HOME/.local/bin"
+export NVIM_DIR="$HOME/.config/nvim"
+export OMNIROUTE_CHAT_ADMISSION_QUEUE_MS=5000
+export OMNIROUTE_CHAT_MAX_HEAVY_IN_FLIGHT=4
+export OMNIROUTE_ROTATE_ON_400=true
+export OPENCODE_EXPERIMENTAL_OUTPUT_TOKEN_MAX=128000
+export REQUIRE_API_KEY=true
+# export SKILLSPECTOR_MODEL=glm-5.2
+export SKILLSPECTOR_PROVIDER=nv_build
+export ZSH="$HOME/.oh-my-zsh"
 
 source $ZSH/oh-my-zsh.sh
+
+source "$HOME/.oh-my-zsh/custom/plugins/zsh-fzf-history-search/zsh-fzf-history-search.zsh"
+source "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 [[ -r "$HOME/.zsh_aliases" ]] && source "$HOME/.zsh_aliases"
 

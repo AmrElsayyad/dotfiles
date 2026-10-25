@@ -69,11 +69,14 @@ fi
 # ─── BUN ───────────────────────────────────────────────────────────
 if command -v bun >/dev/null 2>&1; then
   echo_section "Updating global Bun packages"
-  bun_out=$(bun update --global 2>&1) || bun_out=""
-  if echo "$bun_out" | grep -E '^[a-zA-Z0-9@/_.-]+@[0-9]+\.[0-9.]+ → [0-9]+\.[0-9.]+' >/dev/null 2>&1; then
+  bun_out=$(bun update --latest -g 2>&1)
+  bun_status=$?
+  if [[ $bun_status -ne 0 ]]; then
+    error_summary+=("bun: update failed (status $bun_status)")
+  elif echo "$bun_out" | grep -q "→"; then
     pkgs=$(echo "$bun_out" |
-      grep -E '^[a-zA-Z0-9@/_.-]+@[0-9]' |
-      sed -E 's/@[0-9.]+ → [0-9.]+//g' |
+      grep "→" |
+      awk '{print $2}' |
       sort -u |
       join_comma)
     update_summary+=("bun: $pkgs")
