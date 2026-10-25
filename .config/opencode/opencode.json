@@ -639,6 +639,9 @@
       "models": {
         "my-combo": {
           "name": "my-combo"
+        },
+        "free-combo": {
+          "name": "free-combo"
         }
       },
       "body": {

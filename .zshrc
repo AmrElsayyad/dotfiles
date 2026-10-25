@@ -77,7 +77,7 @@ fi
 ZSH_TMUX_AUTONAME_SESSION=true
 
 # OMZ plugins are defined in ~/.zshenv
-source "$HOME/.zshenv"
+[[ -r "$HOME/.zshenv" ]] && source "$HOME/.zshenv"
 
 # User configuration
 
