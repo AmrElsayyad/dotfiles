@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/game-development__minecraft-bukkit-pro.md

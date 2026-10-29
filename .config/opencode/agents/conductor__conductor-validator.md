@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/conductor__conductor-validator.md

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/startup-business-analyst__market-opportunity.md

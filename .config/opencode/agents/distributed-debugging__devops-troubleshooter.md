@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/distributed-debugging__devops-troubleshooter.md

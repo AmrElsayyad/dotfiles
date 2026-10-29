@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/database-migrations__sql-migrations.md

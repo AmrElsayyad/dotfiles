@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/javascript-typescript__typescript-pro.md

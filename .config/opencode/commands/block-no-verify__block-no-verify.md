@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/block-no-verify__block-no-verify.md

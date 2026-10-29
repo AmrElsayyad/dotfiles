@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/systems-programming__c-pro.md

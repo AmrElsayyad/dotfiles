@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/debugging-toolkit__dx-optimizer.md

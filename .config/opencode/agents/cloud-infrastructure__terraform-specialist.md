@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/cloud-infrastructure__terraform-specialist.md

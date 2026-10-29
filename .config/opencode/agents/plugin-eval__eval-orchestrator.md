@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/plugin-eval__eval-orchestrator.md

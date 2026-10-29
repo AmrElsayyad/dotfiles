@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/ui-design__create-component.md

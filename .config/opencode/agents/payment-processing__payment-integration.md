@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/payment-processing__payment-integration.md

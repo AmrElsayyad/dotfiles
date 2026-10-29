@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/deployment-validation__config-validate.md

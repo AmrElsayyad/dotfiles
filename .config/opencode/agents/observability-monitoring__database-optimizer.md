@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/observability-monitoring__database-optimizer.md

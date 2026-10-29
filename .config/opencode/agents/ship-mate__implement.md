@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/ship-mate__implement.md

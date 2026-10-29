@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/frontend-mobile-development__frontend-developer.md

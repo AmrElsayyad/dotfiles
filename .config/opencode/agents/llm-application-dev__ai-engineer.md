@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/llm-application-dev__ai-engineer.md

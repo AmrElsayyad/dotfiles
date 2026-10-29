@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/conductor__setup.md

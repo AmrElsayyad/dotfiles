@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/api-scaffolding__graphql-architect.md

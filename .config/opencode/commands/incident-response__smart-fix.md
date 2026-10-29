@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/incident-response__smart-fix.md

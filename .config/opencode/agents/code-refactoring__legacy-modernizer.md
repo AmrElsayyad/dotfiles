@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/code-refactoring__legacy-modernizer.md

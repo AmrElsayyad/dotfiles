@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/database-cloud-optimization__cloud-architect.md

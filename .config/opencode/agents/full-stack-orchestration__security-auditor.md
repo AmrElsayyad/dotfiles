@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/full-stack-orchestration__security-auditor.md
