@@ -241,7 +241,10 @@ When changing authentication, payments, file access, permissions, native capabil
 
 ## Git Workflow
 
-- **Conventional Commits**: `<type>(<scope>): <description>` (e.g., `feat`, `fix`, `chore`). Imperative mood, < 50 chars. Explain _what_ and _why_ in the body, wrapped at 72 chars. Use `BREAKING CHANGE:` footer if applicable.
+- **Conventional Commits**: `<type>(<scope>): <description>` (e.g., `feat`,
+  `fix`, `chore`). Imperative mood, < 50 chars. Explain _what_ and _why_ in the
+  body, wrapped at 72 chars. Use `BREAKING CHANGE:` footer if applicable. The
+  commit command must use the `-s` flag to add a Signed-off-by trailer.
 
 <!-- codebase-memory-mcp:start -->
 
@@ -415,6 +418,7 @@ Code/commits/PRs: write normal. "stop caveman" or "normal mode": revert. Level p
 - **Security First**: Never weaken auth, authorization, validation, rate limiting, secret handling, or anti-tampering controls to simplify implementation.
 
 <!-- CODEGRAPH_START -->
+
 ## CodeGraph
 
 In repositories indexed by CodeGraph (a `.codegraph/` directory exists at the repo root), reach for it BEFORE grep/find or reading files when you need to understand or locate code:
@@ -423,4 +427,5 @@ In repositories indexed by CodeGraph (a `.codegraph/` directory exists at the re
 - **Shell** (always works): `codegraph explore "<symbol names or question>"` prints the same output.
 
 If there is no `.codegraph/` directory, skip CodeGraph entirely — indexing is the user's decision.
+
 <!-- CODEGRAPH_END -->
