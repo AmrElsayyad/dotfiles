@@ -1,0 +1,114 @@
+#
+# ~/.zimrc
+#
+# This file configures zimfw. It is not sourced during shell startup.
+#
+# Scope:
+#   - No Oh My Zsh plugins.
+#   - Zim modules for the core interactive experience.
+#   - zsh-users modules for additional completions, highlighting,
+#     history substring search, and autosuggestions.
+#
+# Keep personal aliases, vi-mode settings, and tool initialization
+# in ~/.zshrc, not here.
+#
+
+#
+# Core modules
+#
+
+# Sets sensible Zsh built-in environment options.
+zmodule environment
+
+# Provides Zim's Git aliases and helper functions.
+# These are not the same aliases as OMZ's Git plugin.
+# Keep any exact OMZ-style shortcuts you want in your own aliases file.
+zmodule git
+
+# Applies correct key bindings for input events.
+# To use vi-mode, put the following near the beginning of ~/.zshrc,
+# before Zim initializes:
+#
+#   bindkey -v
+#
+zmodule input
+
+# Sets the terminal title.
+zmodule termtitle
+
+# Utility aliases and functions, including colour for ls, grep, and less.
+zmodule utility
+
+#
+# Files and interactive search
+#
+
+# Adds eza aliases and defaults.
+# The module is named "exa", but supports eza.
+# Must load after utility so its directory-listing aliases take precedence.
+# Requires eza or exa to be installed separately.
+zmodule exa
+
+# Sets up fzf's shell integration, including history search and
+# file/directory selection.
+#
+# Requirements:
+#   - fzf >= 0.48.0
+#   - At least one of fd, ripgrep, bfs, or ugrep
+#
+# Optional preview tools:
+#   - eza for directory previews
+#   - bat for file previews
+#
+# Do not also initialize fzf separately in ~/.zshrc.
+zmodule fzf
+
+#
+# Prompt
+#
+
+# Keep the existing asciiship prompt and its supporting modules.
+
+# Exposes the last command's execution time to the prompt.
+zmodule duration-info
+
+# Exposes Git repository status to the prompt.
+zmodule git-info
+
+# Formats the current working directory for the prompt.
+zmodule prompt-pwd
+
+# Compact, ASCII-only prompt inspired by Spaceship and Starship.
+zmodule asciiship
+
+#
+# Completion
+#
+
+# Additional completion definitions.
+# This is not a guarantee of completions for every tool you use.
+zmodule zsh-users/zsh-completions --fpath src
+
+# Initializes and configures completion.
+# Must load after modules that provide completion definitions.
+zmodule completion
+
+#
+# Modules that must initialize last
+#
+
+# Syntax highlighting; must load after completion.
+zmodule zsh-users/zsh-syntax-highlighting
+
+# Searches history for commands containing the text currently typed.
+# Complements fzf history search rather than replacing it.
+# Must load after syntax highlighting.
+zmodule zsh-users/zsh-history-substring-search
+
+# Inline command suggestions from history.
+# For manual widget rebinding, put the following near the beginning
+# of ~/.zshrc, before Zim initializes:
+#
+#   ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+#
+zmodule zsh-users/zsh-autosuggestions

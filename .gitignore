@@ -25,6 +25,9 @@
 !scripts/
 !scripts/*
 !.tmux.conf.local
+!.zim/
+!.zim/*
+!.zimrc
 !.zshenv
 !.zshrc
 !README.md

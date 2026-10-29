@@ -1,154 +1,210 @@
-# shellcheck shell=bash
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Fast Node Manager
-FNM_PATH="/home/amr/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-    export PATH="/home/amr/.local/share/fnm:$PATH"
-    eval "$(fnm env)"
-fi
-
-# tmux variables
-ZSH_TMUX_AUTONAME_SESSION=true
-
-# OMZ plugins are defined in ~/.zshenv
-[[ -r "$HOME/.zshenv" ]] && source "$HOME/.zshenv"
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if command -v nvim >/dev/null 2>&1; then
-  export EDITOR='nvim'
-  export SUDO_EDITOR='nvim'
-else
-  export EDITOR='vi'
-  export SUDO_EDITOR='vi'
-fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
+# ~/.zshrc
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Interactive Zsh configuration.
+# Zim is the only framework initialized here.
+# No Oh My Zsh plugins are sourced.
 
-# cargo
-source "$HOME/.cargo/env"
+# Return rather than exit if this file is manually sourced
+# from a non-interactive shell.
+[[ -o interactive ]] || return
 
-# go version manager
-[[ -s "/home/amr/.gvm/scripts/gvm" ]] && source "/home/amr/.gvm/scripts/gvm"
+# ---------------------
+# History
+# ---------------------
 
-# jenv
-eval "$(jenv init -)"
+HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
 
-# pnpm
-export PNPM_HOME='/home/amr/.local/share/pnpm'
-case ":$PATH:" in
-  ":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
+# Share history between interactive shells.
+setopt SHARE_HISTORY
 
-# Skip the rest of the script if not running interactively
-[[ -o interactive ]] || exit 0
+# Remove older duplicates when adding commands to history.
+setopt HIST_IGNORE_ALL_DUPS
 
-# Alacritty completions
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+# Do not save commands beginning with a space.
+setopt HIST_IGNORE_SPACE
 
-# Fastfetch
-fastfetch
+# Remove unnecessary blanks from history entries.
+setopt HIST_REDUCE_BLANKS
 
-# Update the system
-read "answer?Do you want to update the system? [y/N] "
-answer=${answer:l}
+# Avoid writing duplicate entries when saving history.
+setopt HIST_SAVE_NO_DUPS
 
-if [[ $answer =~ ^(yes|y)$ ]]; then
-    echo "Starting system update..."
-    ~/scripts/update-system.sh
-elif [[ $answer =~ ^(no|n)$ ]]; then
-    echo "Skipping system update"
+# ---------------------
+# Input and editing
+# ---------------------
+
+# Preserve your current Emacs-style key bindings.
+# Change this to "bindkey -v" if you prefer vi-mode.
+bindkey -v
+
+# Treat "/" as a word boundary for editing commands.
+WORDCHARS=${WORDCHARS//[\/]}
+
+# Preserve your previous preference for command correction.
+# Comment out this line if correction prompts become distracting.
+setopt CORRECT
+
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+# ---------------------
+# Preferred editor
+# ---------------------
+
+if (( ${+commands[nvim]} )); then
+  export EDITOR=nvim
+  export VISUAL=nvim
+  export SUDO_EDITOR=nvim
 else
-    eval "$answer"
+  export EDITOR=vi
+  export VISUAL=vi
+  export SUDO_EDITOR=vi
 fi
 
+# ---------------------
+# Development environments
+# ---------------------
 
-# bun completions
-[ -s "/home/amr/.bun/_bun" ] && source "/home/amr/.bun/_bun"
+# Rust / Cargo.
+if [[ -r "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
+
+# Go Version Manager.
+if [[ -r "$HOME/.gvm/scripts/gvm" ]]; then
+  source "$HOME/.gvm/scripts/gvm"
+fi
+
+# Fast Node Manager.
+# Uses your configured default Node version.
+# No automatic directory-based switching is enabled here.
+if (( ${+commands[fnm]} )); then
+  eval "$(fnm env --shell zsh)"
+fi
+
+# Java environment manager.
+if (( ${+commands[jenv]} )); then
+  eval "$(jenv init -)"
+fi
+
+# ---------------------
+# Completion search paths
+# ---------------------
+
+# These must be set before Zim's completion module initializes.
+typeset -U fpath
+
+# Your custom completion definitions, including Alacritty.
+if [[ -d "${ZDOTDIR:-$HOME}/.zsh_functions" ]]; then
+  fpath=("${ZDOTDIR:-$HOME}/.zsh_functions" "${fpath[@]}")
+fi
+
+# Bun supplies an autoloadable completion file named "_bun".
+# Make its directory available to Zsh completion instead of sourcing
+# the completion definition directly.
+if [[ -r "$BUN_INSTALL/_bun" ]]; then
+  fpath=("$BUN_INSTALL" "${fpath[@]}")
+fi
+
+# ---------------------
+# Zim module configuration
+# ---------------------
+
+# Keep Zim's default uppercase Git alias prefix.
+# Exact personal shortcuts can be defined in ~/.zsh_aliases.
+#
+# To change the prefix, uncomment:
+# zstyle ':zim:git' aliases-prefix 'g'
+
+# Optional: expand additional dots into parent-directory components.
+# zstyle ':zim:input' double-dot-expand yes
+
+# Optional terminal title customization.
+# zstyle ':zim:termtitle' format '%n@%m: %~'
+
+# Match history entries only when they start with the typed text.
+HISTORY_SUBSTRING_SEARCH_PREFIXED=1
+
+# The autosuggestions module must remain last in ~/.zimrc
+# when manual rebinding is enabled.
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Optional suggestion appearance.
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# ---------------------
+# Initialize Zim
+# ---------------------
+
+ZIM_HOME="${ZDOTDIR:-$HOME}/.zim"
+
+# Do not download executable code or install modules automatically
+# during shell startup.
+#
+# After editing ~/.zimrc, run:
+#   zimfw install
+#   zimfw build
+#
+# If Zim has not yet been built, the shell still starts without it.
+if [[ -r "$ZIM_HOME/init.zsh" ]]; then
+  source "$ZIM_HOME/init.zsh"
+else
+  print -u2 -- "Zim initialization file is missing: $ZIM_HOME/init.zsh"
+  print -u2 -- "Run: source \"$ZIM_HOME/zimfw.zsh\" install"
+  print -u2 -- "Then run: source \"$ZIM_HOME/zimfw.zsh\" build"
+fi
+
+# ---------------------
+# Navigation
+# ---------------------
+
+# Initialize once. Do not also load a zoxide module in ~/.zimrc.
+if (( ${+commands[zoxide]} )); then
+  eval "$(zoxide init zsh)"
+fi
+
+# ---------------------
+# Personal aliases
+# ---------------------
+
+# Load after framework and tool initialization so your aliases win.
+# Do not source ~/.zshenv here; Zsh has already read it.
+if [[ -r "$HOME/.zsh_aliases" ]]; then
+  source "$HOME/.zsh_aliases"
+fi
+
+# ---------------------
+# Explicit system updates
+# ---------------------
+
+# Run updates only when requested, never on every shell startup.
+# Usage: update-system
+function update-system {
+  local update_script="$HOME/scripts/update-system.sh"
+
+  if [[ ! -f "$update_script" ]]; then
+    print -u2 -- "Update script not found: $update_script"
+    return 1
+  fi
+
+  if [[ ! -x "$update_script" ]]; then
+    print -u2 -- "Update script is not executable: $update_script"
+    print -u2 -- "Inspect it, then run: chmod u+x \"$update_script\""
+    return 1
+  fi
+
+  "$update_script" "$@"
+}
+
+# ---------------------
+# Startup display
+# ---------------------
+
+# Display Fastfetch only for terminal sessions, not redirected output.
+if [[ -t 0 && -t 1 ]] && (( ${+commands[fastfetch]} )); then
+  command fastfetch
+fi
+
