@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/ui-design__ui-designer.md

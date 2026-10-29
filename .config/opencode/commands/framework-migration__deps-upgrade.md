@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/framework-migration__deps-upgrade.md

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/code-documentation__docs-architect.md

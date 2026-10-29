@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/database-design__database-architect.md

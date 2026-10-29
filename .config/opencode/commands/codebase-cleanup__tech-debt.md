@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/codebase-cleanup__tech-debt.md

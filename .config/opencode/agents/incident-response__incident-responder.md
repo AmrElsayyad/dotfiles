@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/incident-response__incident-responder.md

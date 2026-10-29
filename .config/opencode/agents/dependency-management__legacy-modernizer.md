@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/dependency-management__legacy-modernizer.md

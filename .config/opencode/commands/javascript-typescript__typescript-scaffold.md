@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/javascript-typescript__typescript-scaffold.md

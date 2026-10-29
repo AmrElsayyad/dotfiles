@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/observability-monitoring__monitor-setup.md

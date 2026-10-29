@@ -1,0 +1,6 @@
+.gitignore
+.gitmodules
+.pre-commit-config.yaml
+README.md
+dot_config/nvim/
+scripts/

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/documentation-generation__doc-generate.md

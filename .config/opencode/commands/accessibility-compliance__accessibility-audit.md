@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/accessibility-compliance__accessibility-audit.md

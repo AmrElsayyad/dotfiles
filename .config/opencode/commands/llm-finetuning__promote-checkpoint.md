@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/llm-finetuning__promote-checkpoint.md

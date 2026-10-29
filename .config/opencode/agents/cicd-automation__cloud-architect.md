@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/cicd-automation__cloud-architect.md

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/database-migrations__database-admin.md

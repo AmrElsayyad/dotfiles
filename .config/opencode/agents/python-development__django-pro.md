@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/python-development__django-pro.md

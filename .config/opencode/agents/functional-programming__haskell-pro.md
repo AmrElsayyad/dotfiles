@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/functional-programming__haskell-pro.md

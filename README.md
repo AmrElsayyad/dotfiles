@@ -1,47 +1,46 @@
-# Home Directory Configuration
+# Home Directory Dotfiles
 
-This repository contains configuration files for my home directory setup.
+Personal dotfiles managed using [chezmoi](https://www.chezmoi.io/).
 
 ## Overview
 
-This repository is designed to track only essential configuration files while ignoring all other files and directories in the home directory. The setup ensures clean version control focused on shell configuration and dotfiles.
+This repository contains my personal configurations for terminal emulators, shells, Neovim, Tmux, custom scripts, and AI coding tool environments (OpenCode).
 
-## Tracked Files
+## Installation
 
-Currently tracking:
+To initialize and apply these dotfiles on a new machine:
 
-- `.zshrc` - Zsh shell configuration
-
-## Git Configuration
-
-The repository uses a restrictive `.gitignore` that:
-
-- Ignores all files by default (`*`)
-- Keeps the `.gitignore` file itself visible (`!.gitignore`)
-- Explicitly allows only `.zshrc` (`!.zshrc`)
-
-## Usage
-
-To add new configuration files to tracking:
-
-1. Edit `.gitignore` to add exception rules (e.g., `!.vimrc`)
-2. Add and commit the files as needed
-
-## Structure
+```sh
+sh -c "$(curl -fsLS [https://get.chezmoi.io](https://get.chezmoi.io))" -- init --apply AmrElsayyad
 
 ```
-/
-├── .gitignore         # Git ignore rules
-├── README.md          # This file
-└── .zshrc             # Zsh configuration (when added)
+
+## Daily Usage
+
+- **Apply changes:**
+
+```sh
+chezmoi apply
+
 ```
 
-## Getting Started
+- **Edit a file:**
 
-1. Clone this repository to your home directory
-2. The `.gitignore` ensures only intended files are tracked
-3. Add your shell configuration files as needed
+```sh
+chezmoi edit ~/.zshrc
 
----
+```
 
-_This setup provides a clean way to version control dotfiles without cluttering the repository with unnecessary files._
+- **Add a new file to tracking:**
+
+```sh
+chezmoi add ~/.config/some-app/config.toml
+
+```
+
+- **Check diff between target and source state:**
+
+```sh
+chezmoi diff
+
+```

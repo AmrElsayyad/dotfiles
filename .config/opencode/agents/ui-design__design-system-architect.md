@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/ui-design__design-system-architect.md

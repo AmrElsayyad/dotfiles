@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/codebase-cleanup__test-automator.md

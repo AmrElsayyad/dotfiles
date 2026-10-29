@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/business-analytics__business-analyst.md

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/seo-content-creation__seo-content-auditor.md

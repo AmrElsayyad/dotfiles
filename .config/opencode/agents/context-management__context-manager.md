@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/context-management__context-manager.md

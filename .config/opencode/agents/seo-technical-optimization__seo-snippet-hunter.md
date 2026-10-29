@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/seo-technical-optimization__seo-snippet-hunter.md

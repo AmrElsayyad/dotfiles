@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/incident-response__devops-troubleshooter.md

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/backend-development__feature-development.md

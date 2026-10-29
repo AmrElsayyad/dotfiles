@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/runapi-mcp__balance.md

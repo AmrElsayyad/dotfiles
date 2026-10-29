@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/error-diagnostics__error-detective.md

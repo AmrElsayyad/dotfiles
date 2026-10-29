@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/meigen-ai-design__image-generator.md

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/multi-platform-apps__mobile-developer.md

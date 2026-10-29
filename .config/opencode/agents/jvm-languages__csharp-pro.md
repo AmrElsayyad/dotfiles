@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/jvm-languages__csharp-pro.md

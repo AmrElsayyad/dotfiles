@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/operating-kit__session-start.md

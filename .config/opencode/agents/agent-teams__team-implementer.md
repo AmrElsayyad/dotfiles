@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/agent-teams__team-implementer.md

@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/meigen-ai-design__gen.md

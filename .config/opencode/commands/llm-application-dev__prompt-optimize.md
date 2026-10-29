@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/llm-application-dev__prompt-optimize.md

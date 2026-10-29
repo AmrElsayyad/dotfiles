@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/unit-testing__test-generate.md

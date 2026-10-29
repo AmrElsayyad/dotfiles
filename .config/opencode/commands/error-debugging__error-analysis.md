@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/error-debugging__error-analysis.md

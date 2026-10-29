@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/systems-programming__rust-project.md

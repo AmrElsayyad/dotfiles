@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/hr-legal-compliance__legal-advisor.md

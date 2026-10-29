@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/reverse-engineering__reverse-engineer.md

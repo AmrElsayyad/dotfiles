@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/agents/social-publishing__social-publishing-publisher.md

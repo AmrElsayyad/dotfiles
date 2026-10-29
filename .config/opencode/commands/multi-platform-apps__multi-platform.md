@@ -1,1 +1,0 @@
-/home/amr/agents/.opencode/commands/multi-platform-apps__multi-platform.md
