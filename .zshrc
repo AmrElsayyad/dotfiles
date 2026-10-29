@@ -200,6 +200,16 @@ function update-system {
 }
 
 # ---------------------
+# Git helpers
+# ---------------------
+
+# Print the name of the current Git branch.
+# Prints nothing outside a Git repository or in detached-HEAD state.
+function git_current_branch {
+  git branch --show-current 2>/dev/null
+}
+
+# ---------------------
 # Startup display
 # ---------------------
 

@@ -5,6 +5,8 @@
 !.config/
 !.config/alacritty/
 !.config/alacritty/*
+!.config/ghostty/
+!.config/ghostty/*
 !.config/kitty/
 !.config/kitty/*
 !.config/nvim/

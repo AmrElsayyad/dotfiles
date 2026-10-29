@@ -1,0 +1,110 @@
+# Ghostty Configuration
+# Reload with: ghostty +show-config
+
+# ============================================================
+# Appearance
+# ============================================================
+
+theme = TokyoNight Night
+
+# Font (adjust family/size for your system)
+font-family = JetBrainsMono Nerd Font
+font-size = 9
+
+# Font features
+font-feature = +liga  # Enable ligatures
+font-feature = +calt  # Contextual alternates
+
+# Window
+window-padding-x = 1
+window-padding-y = 1
+window-decoration = none
+window-subtitle = false
+
+# Background opacity (0.0 - 1.0, requires compositor)
+background-opacity = 1
+
+# ============================================================
+# Behavior
+# ============================================================
+
+# Shell (auto-detects if not set)
+# shell = /usr/bin/fish
+
+# Scrollback
+scrollback-limit = 10000
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Confirm close
+confirm-close-surface = false
+
+# ============================================================
+# Keybindings (mod = Super/Windows key, ctrl = Control)
+# ============================================================
+
+# New tab/window (using defaults: ctrl+shift+t/n)
+# keybind = super+t=new_tab
+# keybind = super+n=new_window
+
+# Close tab/window
+# keybind = super+w=close_tab:this
+# keybind = super+shift+w=close_window
+
+# Split panes
+# keybind = super+d=new_split:right
+# keybind = super+shift+d=new_split:down
+
+# Navigate tabs (default: alt+1-9, ctrl+shift+tab, ctrl+tab)
+# keybind = super+1=goto_tab:1
+# keybind = super+2=goto_tab:2
+# keybind = super+3=goto_tab:3
+# keybind = super+4=goto_tab:4
+# keybind = super+5=goto_tab:5
+
+# Navigate panes (default: ctrl+alt+arrows, super+ctrl+[/])
+# keybind = super+h=goto_split:left
+# keybind = super+j=goto_split:down
+# keybind = super+k=goto_split:up
+# keybind = super+l=goto_split:right
+
+# Resize panes (default: super+ctrl+shift+arrows)
+# keybind = super+shift+h=resize_split:left,10
+# keybind = super+shift+j=resize_split:down,10
+# keybind = super+shift+k=resize_split:up,10
+# keybind = super+shift+l=resize_split:right,10
+
+# Zoom pane (default: ctrl+shift+enter)
+# keybind = super+z=toggle_split_zoom
+
+# Copy/Paste (defaults: ctrl+shift+c/v, ctrl+insert/shift+insert)
+# keybind = super+c=copy_to_clipboard:mixed
+# keybind = super+v=paste_from_clipboard
+
+# Font size (defaults: ctrl+plus/minus/0)
+# keybind = super+equal=increase_font_size:1
+# keybind = super+minus=decrease_font_size:1
+# keybind = super+0=reset_font_size
+
+# ============================================================
+# Advanced
+# ============================================================
+
+# VSync
+window-vsync = true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+
+# Bell
+bell-features = no-system,no-audio,attention,title,no-border
+
+# ============================================================
+# Linux-specific
+# ============================================================
+# x11-instance-name = ghostty
+# gtk-titlebar = true
+# gtk-tabs-location = top
+# gtk-titlebar-style = native
